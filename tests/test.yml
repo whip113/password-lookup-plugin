@@ -9,5 +9,5 @@
         query: 'safe=Ansible_Passwords;folder=root;object=aim-test2'
         output: 'Password,PassProps.UserName,PassProps.Address,PasswordChangeInProcess'
 
-    - debug: 
-        msg: '{{ lookup("cyberarkpassword", {"appid": "app_ansible", "query": "safe=Ansible_Passwords;folder=root;object=aim-test2", "output": "Password,PassProps.UserName,PassProps.Address,PasswordChangeInProcess"}) }}'
+#   - debug: 
+#       msg: '{{ lookup("cyberarkpassword", {"appid": "app_ansible", "query": "safe=Ansible_Passwords;folder=root;object=aim-test2", "output": "Password,PassProps.UserName,PassProps.Address,PasswordChangeInProcess"}) }}'
