@@ -2,9 +2,8 @@
 - hosts: localhost
 
   tasks:
-
-    - name: Fetch a secret
-      uri:
-        url: http://192.168.79.55/AIMWebService/api/Accounts?AppID=team1&Object=aim-test2" 
-        method: GET
-        timeout: 10
+  - name: Fetch a secret
+    uri:
+      url: http://192.168.79.55/AIMWebService/api/Accounts?AppID=team1&Object=aim-test2"
+      method: GET
+      timeout: 10
