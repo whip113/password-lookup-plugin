@@ -13,8 +13,8 @@
       return_content: yes
       body_format: json
       status_code: 200
-      client_cert: "{{CLIENT_CERTIFICATE}}"
-      client_key: "{{CLIENT_KEY}}"
+      client_cert: "{{ansible_env.CLIENT_CERTIFICATE}}"
+      client_key: "{{ansible_env.CLIENT_KEY}}"
     register: json_response
   - set_fact: foo="{{json_response.content}}"
   - debug:
