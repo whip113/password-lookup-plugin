@@ -5,7 +5,24 @@
 
   - name: Fetch a secret
     uri:
-      url: https://192.168.79.55/AIMWebService/api/Accounts?AppID=team1&Object=aim-test2"
+      url: https://pvwa.nate.lab/AIMWebService/api/Accounts?AppID=team1&Object=aim-test2 
       method: GET
       timeout: 10
-      validate_certs: no
+      validate_certs: yes
+      register: output
+      return_content: yes
+      body_format: json
+      status_code: 200
+      client_cert: /tmp/ansible.pem
+      client_key: /tmp/ansible_nopass.key
+    register: json_response
+  - set_fact: foo="{{json_response.content}}"
+  - debug:
+      msg: "{{foo.Content}}"
+ 
+
+
+
+#      - name: Write nested JSON variable to disk
+#      copy: content={{json_response.json}} dest="/tmp/output.json"
+
