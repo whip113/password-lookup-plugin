@@ -13,8 +13,8 @@
       return_content: yes
       body_format: json
       status_code: 200
-      client_cert: /tmp/ansible.pem
-      client_key: /tmp/ansible_nopass.key
+      client_cert: "{{CLIENT_CERTIFICATE}}"
+      client_key: "{{CLIENT_KEY}}"
     register: json_response
   - set_fact: foo="{{json_response.content}}"
   - debug:
