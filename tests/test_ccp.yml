@@ -9,7 +9,7 @@
       url: https://pvwa.nate.lab/AIMWebService/api/Accounts?AppID=team1&Object=aim-test2 
       method: GET
       timeout: 10
-      validate_certs: yes
+      validate_certs: no
       register: output
       return_content: yes
       body_format: json
