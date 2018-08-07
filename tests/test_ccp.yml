@@ -1,8 +1,16 @@
 ---
 - hosts: localhost
+  connection: local
 
   tasks:
-  - debug: var=hostvars
+  - name: verify client cert env var is defined as expected
+    debug: 
+      var: ansible_env.CLIENT_CERTIFICATE
+
+  - name: verify client key env var is defined as expected
+    debug: 
+      var: ansible_env.CLIENT_KEY
+      
   - name: Fetch a secret
     uri:
       url: https://192.168.79.55/AIMWebService/api/Accounts?AppID=team1&Object=aim-test2 
@@ -16,9 +24,7 @@
 #     client_cert: /tmp/ansible.pem
 #     client_key: /tmp/ansible_nopass.key
       client_cert: "{{ansible_env.CLIENT_CERTIFICATE}}"
-      debug: var=client_cert
       client_key: "{{ansible_env.CLIENT_KEY}}"
-      debug: var=client_key
     register: json_response
   - set_fact: foo="{{json_response.content}}"
   - debug:
