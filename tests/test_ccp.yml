@@ -10,7 +10,6 @@
       method: GET
       timeout: 10
       validate_certs: yes
-      force_basic_auth: yes
       register: output
       return_content: yes
       body_format: json
