@@ -31,6 +31,6 @@
           Content-Type: "application/json"
         return_content: yes
         status_code: 200      
-    register: variable_value
-  - debug:
-      msg: "{{ variable_value.content }}"
+      register: variable_value
+    - debug:
+        msg: "{{ variable_value.content }}"
