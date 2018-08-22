@@ -5,7 +5,7 @@
     tasks:
     - name: Exchange API key for access token
       uri:
-        url: "{{ ansible_env.CONJUR_APPLIANCE_URL }}/api/authn/host%2Ftower2/authenticate"
+        url: "{{ ansible_env.CONJUR_APPLIANCE_URL }}/api/authn/users/host%2Ftower2/authenticate"
         method: POST
         timeout: 10
         validate_certs: no
