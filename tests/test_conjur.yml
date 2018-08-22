@@ -11,7 +11,7 @@
         validate_certs: no
         headers:
           Content-Type: "text/plain"
-        body: {{ ansible_env.CONJUR_AUTHN_API_KEY }}
+        body: "{{ ansible_env.CONJUR_AUTHN_API_KEY }}"
         return_content: yes
         status_code: 200
         body_format: json
