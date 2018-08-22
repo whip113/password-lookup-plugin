@@ -14,21 +14,23 @@
         body: {{ ansible_env.CONJUR_AUTHN_API_KEY }}
         return_content yes
         status_code: 200
+        body_format: json
       register: token_json
-    - set_fact: token="{{ token_json | b64encode }}"
+    - set_fact: token="{{ token_json.content | b64encode | replace('\r\n', '') }}"
     - debug:
         msg: "{{ token }}"
 
     - name: Use token to retrieve secret
       uri:
-        url: "https://{{ansible_env.CONJUR_APPLIANCE_URL}}/api/variables/ansible%2Fdom_admin%2Fpassword/value?1"
+        url: "https://{{ansible_env.CONJUR_APPLIANCE_URL}}/api/variables/ansible%2Fdom_admin%2Fpassword/value"
         method: GET
         timeout: 10
         validate_certs: no
         headers:
           Authorization: Token token="{{ token }}"
+          Content-Type: "application/json"
         return_content: yes
         status_code: 200      
     register: variable_value
   - debug:
-      msg: "{{ variable_value }}"
+      msg: "{{ variable_value.content }}"
