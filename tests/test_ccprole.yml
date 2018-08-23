@@ -3,23 +3,22 @@
   connection: local
   
   roles:
-
-    - role: cyberark-bizdev.modules
+  - role: cyberark-bizdev.modules
 
   tasks:
 
-    - name: Logon to CyberArk Vault using PAS Web Services SDK and retrieve a secret
-      cyberark_credential:
-        api_base_url: "https://pvwa.nate.lab"
-        validate_certs: yes
-        client_cert: "{{ansible_env.CLIENT_CERTIFICATE}}"
-        client_key: "{{ansible_env.CLIENT_KEY}}"
-        app_id: "team1"
-        query: "safe=Ansible_Passwords;folder=root;object=aim-test2"
-        reason: "Testing Ansible Playbook"
-      register: cyberarkcredential
+  - name: Logon to CyberArk Vault using PAS Web Services SDK and retrieve a secret
+    cyberark_credential:
+      api_base_url: "https://pvwa.nate.lab"
+      validate_certs: yes
+      client_cert: "{{ansible_env.CLIENT_CERTIFICATE}}"
+      client_key: "{{ansible_env.CLIENT_KEY}}"
+      app_id: "team1"
+      query: "safe=Ansible_Passwords;folder=root;object=aim-test2"
+      reason: "Testing Ansible Playbook"
+    register: cyberarkcredential
 
 
-    - name: Debug message
-      debug: 
-        var: cyberarkcredential
+  - name: Debug message
+    debug: 
+      var: cyberarkcredential
