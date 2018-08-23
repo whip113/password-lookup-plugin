@@ -1,9 +1,6 @@
 ---
 - hosts: localhost
   connection: local
-  
-  roles:
-  - role: cyberark-bizdev.modules
 
   tasks:
 
