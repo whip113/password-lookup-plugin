@@ -5,4 +5,4 @@
     tasks:
     - name: Retrieve a secret
       debug:
-        msg: "{{ AWS_SECRET_ACCESS_KEY }}"
+        msg: "{{ ansible_env.AWS_SECRET_ACCESS_KEY }}"
