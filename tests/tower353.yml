@@ -5,4 +5,4 @@
     tasks:
     - name: Retrieve a secret
       debug:
-        msg: {{ ansible_ssh_user }}
+        msg: "{{ ansible_ssh_user }}"
