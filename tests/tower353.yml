@@ -5,4 +5,4 @@
     tasks:
     - name: Show secret value
       debug:
-      msg: "{{ ansible_env.my_app Secret }}"
+        msg: "{{ ansible_env.my_app Secret }}"
