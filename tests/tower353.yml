@@ -3,5 +3,7 @@
     connection: local
     
     tasks:
-    - name: Show secret value
-      set_fact: "{{ my_app_secret }}"
+    - name: Retrieve a secret
+      set_fact: {{ my_app_secret }}
+      debug:
+        msg: {{ my_app_secret }}
