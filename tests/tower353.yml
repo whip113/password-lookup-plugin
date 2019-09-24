@@ -4,5 +4,4 @@
     
     tasks:
     - name: Show secret value
-      debug:
-        msg: "{{ my_app_secret }}"
+      set_fact: "{{ my_app_secret }}"
