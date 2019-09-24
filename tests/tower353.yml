@@ -4,6 +4,5 @@
     
     tasks:
     - name: Retrieve a secret
-      set_fact: {{ my_app_secret }}
       debug:
-        msg: {{ my_app_secret }}
+        msg: {{ ansible_ssh_user }}
