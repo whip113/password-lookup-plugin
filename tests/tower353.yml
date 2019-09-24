@@ -3,6 +3,6 @@
     connection: local
     
     tasks:
-    - name: Show secret vaulue
-    - debug:
+    - name: Show secret value
+      debug:
       msg: "{{ ansible_env.my_app Secret }}"
